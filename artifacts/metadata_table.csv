@@ -1,0 +1,18 @@
+feature,group,missing_share,rule,strategy_A_additive,strategy_B_partitioning
+duration,numeric_continuous,0.0,"max_share: 0.10, median",log1p → standard_scaler,winsorize
+credit_amount,numeric_continuous,0.2025,"max_share: 0.40, median +I",log1p → standard_scaler,winsorize
+age,numeric_continuous,0.0525,"max_share: 0.10, median",log1p → standard_scaler,winsorize
+installment_rate,numeric_discrete,0.0,"max_share: 0.10, median",standard_scaler,(лише імпутація)
+residence_since,numeric_discrete,0.5012,"max_share: 1.00, constant +I",standard_scaler,(лише імпутація)
+existing_credits,numeric_discrete,0.0,"max_share: 0.10, median",standard_scaler,(лише імпутація)
+checking_account,categorical_nominal,0.0,"max_share: 0.10, most_frequent",woe,one_hot
+credit_history,categorical_nominal,0.0,"max_share: 0.10, most_frequent",woe,one_hot
+purpose,categorical_nominal,0.25,"max_share: 1.00, constant",woe,one_hot
+savings_account,categorical_nominal,0.065,"max_share: 0.10, most_frequent",woe,one_hot
+other_debtors,categorical_nominal,0.0,"max_share: 0.10, most_frequent",woe,one_hot
+property,categorical_nominal,0.0,"max_share: 0.10, most_frequent",woe,one_hot
+other_installment_plans,categorical_nominal,0.0,"max_share: 0.10, most_frequent",woe,one_hot
+housing,categorical_nominal,0.0,"max_share: 0.10, most_frequent",woe,one_hot
+telephone,categorical_nominal,0.0,"max_share: 0.10, most_frequent",woe,one_hot
+employment_since,categorical_ordinal,0.1437,"max_share: 1.00, constant",ordinal_encoder → standard_scaler,ordinal_encoder
+job,categorical_ordinal,0.035,"max_share: 0.10, most_frequent",ordinal_encoder → standard_scaler,ordinal_encoder

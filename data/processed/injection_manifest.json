@@ -1,0 +1,30 @@
+{
+  "source": "Statlog (German Credit Data), UCI ML Repository, dataset 144",
+  "raw_sha256": "b21f3d81db8071257d5ff1deaeba1fd4303b62712e6fcc9715c7a86202cb5871",
+  "mechanism": "MCAR",
+  "seed": 42,
+  "rng": "numpy.random.default_rng",
+  "plan": {
+    "age": 0.05,
+    "credit_amount": 0.2,
+    "residence_since": 0.5,
+    "savings_account": 0.06,
+    "job": 0.03,
+    "employment_since": 0.15,
+    "purpose": 0.25
+  },
+  "n_rows": 1000,
+  "missing_counts": {
+    "age": 50,
+    "credit_amount": 200,
+    "residence_since": 500,
+    "savings_account": 60,
+    "job": 30,
+    "employment_since": 150,
+    "purpose": 250
+  },
+  "outputs": {
+    "german_credit_clean.csv": "fd9c46375bfbd093a1870d50f3184591c84c553be1553bf459582ee3de71c267",
+    "german_credit_mcar.csv": "94ccbae4b4dffc58f7c976732f3e274165ced549e20398f222dc36b5c8d15d48"
+  }
+}

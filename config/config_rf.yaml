@@ -1,0 +1,58 @@
+model_family: partitioning
+
+target: bad_credit
+
+features:
+  numeric_continuous: [duration, credit_amount, age]
+
+  numeric_discrete: [installment_rate, residence_since, existing_credits]
+  categorical_nominal:
+    - checking_account
+    - credit_history
+    - purpose
+    - savings_account
+    - other_debtors
+    - property
+    - other_installment_plans
+    - housing
+    - telephone
+  categorical_ordinal: [employment_since, job]
+
+
+protected_attributes: [sex, personal_status_sex, foreign_worker]
+
+imputation_policy:
+  numeric:
+    - {max_share: 0.10, strategy: median}
+    - {max_share: 0.40, strategy: median, add_indicator: true}
+    - {max_share: 1.00, strategy: constant, fill_value: 0, add_indicator: true}
+  categorical:
+    - {max_share: 0.10, strategy: most_frequent}
+    - {max_share: 1.00, strategy: constant, fill_value: "Missing"}
+
+imputation_routing:
+  numeric_continuous: numeric
+  numeric_discrete: numeric
+  categorical_nominal: categorical
+  categorical_ordinal: categorical
+
+ordinal_categories:
+  employment_since: [unemployed, "<1 year", "1-4 years", "4-7 years", ">=7 years"]
+  job:
+    - unemployed/unskilled non-resident
+    - unskilled resident
+    - skilled employee
+    - management/highly qualified
+
+transform_policy:
+  additive:
+    numeric_continuous: [log1p, standard_scaler]
+    numeric_discrete: [standard_scaler]
+    categorical_nominal: [woe]
+    categorical_ordinal: [ordinal_encoder, standard_scaler]
+  partitioning:
+    numeric_continuous:
+      - winsorize: {lower_quantile: 0.01, upper_quantile: 0.99}
+    numeric_discrete: []
+    categorical_nominal: [one_hot]
+    categorical_ordinal: [ordinal_encoder]

@@ -1,0 +1,18 @@
+feature,group,missing_share,max_share,strategy,fill_value,add_indicator,transforms
+duration,numeric_continuous,0.0,0.1,median,18.0,False,log1p → standard_scaler
+credit_amount,numeric_continuous,0.2025,0.4,median,2317.0,True,log1p → standard_scaler
+age,numeric_continuous,0.0525,0.1,median,33.0,False,log1p → standard_scaler
+installment_rate,numeric_discrete,0.0,0.1,median,3.0,False,standard_scaler
+residence_since,numeric_discrete,0.5012,1.0,constant,0,True,standard_scaler
+existing_credits,numeric_discrete,0.0,0.1,median,1.0,False,standard_scaler
+checking_account,categorical_nominal,0.0,0.1,most_frequent,no account,False,woe
+credit_history,categorical_nominal,0.0,0.1,most_frequent,existing paid duly,False,woe
+purpose,categorical_nominal,0.25,1.0,constant,Missing,False,woe
+savings_account,categorical_nominal,0.065,0.1,most_frequent,<100 DM,False,woe
+other_debtors,categorical_nominal,0.0,0.1,most_frequent,none,False,woe
+property,categorical_nominal,0.0,0.1,most_frequent,car or other,False,woe
+other_installment_plans,categorical_nominal,0.0,0.1,most_frequent,none,False,woe
+housing,categorical_nominal,0.0,0.1,most_frequent,own,False,woe
+telephone,categorical_nominal,0.0,0.1,most_frequent,none,False,woe
+employment_since,categorical_ordinal,0.1437,1.0,constant,Missing,False,ordinal_encoder → standard_scaler
+job,categorical_ordinal,0.035,0.1,most_frequent,skilled employee,False,ordinal_encoder → standard_scaler

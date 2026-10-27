@@ -1,0 +1,32 @@
+{
+  "heuristic": {
+    "accuracy": 0.693,
+    "recall_bad": 0.58,
+    "precision_bad": 0.49014084507042255,
+    "cost_per_applicant": 0.811,
+    "TP": 174.0,
+    "FP": 181.0,
+    "FN": 126.0,
+    "TN": 519.0
+  },
+  "trivial: all good": {
+    "accuracy": 0.7,
+    "recall_bad": 0.0,
+    "precision_bad": 0.0,
+    "cost_per_applicant": 1.5,
+    "TP": 0.0,
+    "FP": 0.0,
+    "FN": 300.0,
+    "TN": 700.0
+  },
+  "trivial: all bad": {
+    "accuracy": 0.3,
+    "recall_bad": 1.0,
+    "precision_bad": 0.3,
+    "cost_per_applicant": 0.7,
+    "TP": 300.0,
+    "FP": 700.0,
+    "FN": 0.0,
+    "TN": 0.0
+  }
+}
